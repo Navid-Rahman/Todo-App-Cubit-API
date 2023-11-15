@@ -1,12 +1,13 @@
 import 'dart:convert';
 
 import 'package:http/http.dart' as http;
+import 'package:todo_app_cubit_api/constants/api_endpoints.dart';
 
 import '../domain/todo_model.dart';
 
 class TodoRepository {
   Future<List<TodoModel>> getTodos() async {
-    const url = 'https://jsonplaceholder.typicode.com/todos';
+    const url = ApiEndpoints.BASE_URL;
 
     final uri = Uri.parse(url);
     final response = await http.get(uri);
