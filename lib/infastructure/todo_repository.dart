@@ -1,7 +1,8 @@
 import 'dart:convert';
 
 import 'package:http/http.dart' as http;
-import 'package:todo_app_cubit_api/models/todo_model.dart';
+
+import '../domain/todo_model.dart';
 
 class TodoRepository {
   Future<List<TodoModel>> getTodos() async {

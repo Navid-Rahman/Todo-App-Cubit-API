@@ -1,8 +1,8 @@
 import 'package:bloc/bloc.dart';
 import 'package:meta/meta.dart';
-import 'package:todo_app_cubit_api/models/todo_model.dart';
 
-import '../repository/todo_repository.dart';
+import '../domain/todo_model.dart';
+import '../infastructure/todo_repository.dart';
 
 part 'todo_state.dart';
 
