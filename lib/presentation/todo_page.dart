@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:todo_app_cubit_api/application/todo_cubit.dart';
+import 'package:todo_app_cubit_api/constants/constants.dart';
 
 class TodoPage extends StatefulWidget {
   const TodoPage({super.key});
@@ -21,18 +22,7 @@ class _TodoPageState extends State<TodoPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        leading: const Icon(
-          Icons.menu,
-          color: Colors.black,
-        ),
-        centerTitle: true,
-        title: const Text(
-          'Todo',
-          style: TextStyle(color: Colors.black),
-        ),
-        backgroundColor: const Color(0XFFEBE3D5),
-      ),
+      appBar: kAppBarStyle,
       body: BlocBuilder<TodoCubit, TodoState>(
         builder: (context, state) {
           if (state is TodoInitial) {
@@ -61,17 +51,11 @@ class _TodoPageState extends State<TodoPage> {
                     ),
                     title: Text(
                       state.todos[index].title,
-                      style: const TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 20,
-                        color: Color(0XFF22092C),
-                      ),
+                      style: kTitleTextStyle,
                     ),
                     subtitle: Text(
                       state.todos[index].completed.toString(),
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 16,
+                      style: kSubtitleTextStyle.copyWith(
                         color: state.todos[index].completed
                             ? Colors.green
                             : Colors.red,
