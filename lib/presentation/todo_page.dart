@@ -12,7 +12,6 @@ class TodoPage extends StatefulWidget {
 class _TodoPageState extends State<TodoPage> {
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
       context.read<TodoCubit>().fetchTodo();
@@ -23,7 +22,16 @@ class _TodoPageState extends State<TodoPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Todo'),
+        leading: const Icon(
+          Icons.menu,
+          color: Colors.black,
+        ),
+        centerTitle: true,
+        title: const Text(
+          'Todo',
+          style: TextStyle(color: Colors.black),
+        ),
+        backgroundColor: const Color(0XFFEBE3D5),
       ),
       body: BlocBuilder<TodoCubit, TodoState>(
         builder: (context, state) {
@@ -37,10 +45,38 @@ class _TodoPageState extends State<TodoPage> {
             return ListView.builder(
               itemCount: state.todos.length,
               itemBuilder: (context, index) {
-                return ListTile(
-                  title: Text(state.todos[index].title),
-                  subtitle: Text(
-                    state.todos[index].completed.toString(),
+                return Container(
+                  margin: const EdgeInsets.all(10),
+                  decoration: BoxDecoration(
+                    border: Border.all(
+                      color: Colors.grey,
+                    ),
+                    borderRadius: BorderRadius.circular(10),
+                    color: const Color(0XFFF3EEEA),
+                  ),
+                  child: ListTile(
+                    leading: const Icon(
+                      Icons.check_box_outline_blank,
+                      color: Color(0XFF1640D6),
+                    ),
+                    title: Text(
+                      state.todos[index].title,
+                      style: const TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 20,
+                        color: Color(0XFF22092C),
+                      ),
+                    ),
+                    subtitle: Text(
+                      state.todos[index].completed.toString(),
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 16,
+                        color: state.todos[index].completed
+                            ? Colors.green
+                            : Colors.red,
+                      ),
+                    ),
                   ),
                 );
               },
