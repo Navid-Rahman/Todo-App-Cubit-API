@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:todo_app_cubit_api/application/todo_cubit.dart';
 
 class TodoPage extends StatelessWidget {
   const TodoPage({super.key});
@@ -9,8 +11,10 @@ class TodoPage extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Todo'),
       ),
-      body: const Center(
-        child: Text('Todo'),
+      body: BlocBuilder<TodoCubit, TodoState>(
+        builder: (context, state) {
+          return Text(state.toString());
+        },
       ),
     );
   }

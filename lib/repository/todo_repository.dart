@@ -4,7 +4,7 @@ import 'package:http/http.dart' as http;
 import 'package:todo_app_cubit_api/models/todo_model.dart';
 
 class TodoRepository {
-  Future<List<TodoModel>> getAll() async {
+  Future<List<TodoModel>> getTodos() async {
     const url = 'https: //jsonplaceholder. typicode. com/todos';
 
     final uri = Uri.parse(url);

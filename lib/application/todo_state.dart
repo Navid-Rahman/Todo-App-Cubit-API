@@ -7,6 +7,14 @@ class TodoInitial extends TodoState {}
 
 class TodoLoading extends TodoState {}
 
-class TodoSuccess extends TodoState {}
+class TodoSuccess extends TodoState {
+  final List<TodoModel> todos;
 
-class TodoError extends TodoState {}
+  TodoSuccess(this.todos);
+}
+
+class TodoError extends TodoState {
+  final String message;
+
+  TodoError(this.message);
+}
