@@ -5,7 +5,7 @@ import 'package:todo_app_cubit_api/models/todo_model.dart';
 
 class TodoRepository {
   Future<List<TodoModel>> getTodos() async {
-    const url = 'https: //jsonplaceholder. typicode. com/todos';
+    const url = 'https://jsonplaceholder.typicode.com/todos';
 
     final uri = Uri.parse(url);
     final response = await http.get(uri);
